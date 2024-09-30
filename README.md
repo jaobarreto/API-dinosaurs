@@ -16,7 +16,7 @@ Esta é uma API para gerenciar informações sobre dinossauros. A API permite cr
 1. **Clone o repositório**:
 
 ```sh
- git clone https://github.com/jaobarreto/API-dinossauros.git
+ git clone https://github.com/jaobarreto/API-dinosaurs.git
  cd .\src\
 ```
 
