@@ -1,4 +1,4 @@
-# API de Dinossauros
+# Dinosaurs API
 
 ![Dinosaur](assets/dinosaur.avif)
 
