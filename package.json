@@ -6,9 +6,9 @@
     "dev": "tsx watch src/server.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "João Barreto",
   "license": "ISC",
-  "description": "",
+  "description": "Esta é uma API para gerenciar informações sobre dinossauros. A API permite criar, ler, atualizar e deletar.",
   "devDependencies": {
     "@types/node": "^22.7.4",
     "prisma": "^5.20.0",
