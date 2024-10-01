@@ -4,6 +4,10 @@ import { listDinosaurController } from './controllers/ListDinosaurController'
 import { deleteDinosaurController } from './controllers/DeleteDinosaurController'
 import { listDinosaurByIdController } from './controllers/ListDinosaurByIdController'
 import { updateDinosaurController } from './controllers/UpdateDinosaurController'
+import { CreateUserController } from './controllers/CreateUserController'
+import { listUserController } from './controllers/ListUserController'
+import { deleteUserController } from './controllers/DeleteUserController'
+import { updateUserController } from './controllers/UpdateUserController'
 
 export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions) {
 
@@ -29,5 +33,21 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
 
   fastify.put("/dinosaur/:id", async (req: FastifyRequest, res: FastifyReply) => {
     return new updateDinosaurController().handle(req, res);
+  });
+
+  fastify.post("/user", async (req: FastifyRequest, res: FastifyReply) => {
+    return new CreateUserController().handle(req, res);
+  });
+
+  fastify.get("/users", async (req: FastifyRequest, res: FastifyReply) => {
+    return new listUserController().handle(req, res)
+  });
+
+  fastify.delete("/user/:id", async (req: FastifyRequest, res: FastifyReply) => {
+    return new deleteUserController().handle(req, res);
+  });
+
+  fastify.put("/user/:id", async (req: FastifyRequest, res: FastifyReply) => {
+    return new updateUserController().handle(req, res);
   });
 }
