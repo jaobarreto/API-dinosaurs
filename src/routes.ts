@@ -7,6 +7,10 @@ import { updateDinosaurController } from './controllers/UpdateDinosaurController
 
 export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions) {
 
+  fastify.get("/", async (req: FastifyRequest, res: FastifyReply) => {
+    return ("welcome to the dinosaur API")
+  })
+
   fastify.get("/dinosaurs", async (req: FastifyRequest, res: FastifyReply) => {
     return new listDinosaurController().handle(req, res)
   })
