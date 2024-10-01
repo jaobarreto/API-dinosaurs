@@ -1,5 +1,7 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import { CreateUserService } from "../services/CreateUserSevice";
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
 
 class CreateUserController {
   async handle(req: FastifyRequest, res: FastifyReply) {
@@ -10,13 +12,24 @@ class CreateUserController {
     };
 
     const UserService = new CreateUserService();
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const user = await UserService.execute({
       email,
-      password,
+      password: hashedPassword,
       role
     });
 
-    res.send(user);
+    const token = jwt.sign({ userId: user.id, role: user.role }, process.env.JWT_SECRET || '123', { expiresIn: '1h' });
+
+    res.send({
+      user: {
+        id: user.id,
+        email: user.email,
+        role: user.role,
+      },
+      token,
+    });
   }
 }
 

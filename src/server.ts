@@ -1,6 +1,8 @@
 import fastify from "fastify";
 import cors from "@fastify/cors";
-import { routes } from "./routes";
+import { authMiddleware } from "./middlewares/authMiddleware";
+import { dinosaurRoutes } from "./routes/dinosaur.routes";
+import { userRoutes } from "./routes/user.routes";
 
 const app = fastify({ logger: true });
 
@@ -10,7 +12,8 @@ app.setErrorHandler((error, req, res) => {
 
 const start = async () => {
   await app.register(cors);
-  await app.register(routes);
+  await app.register(dinosaurRoutes);
+  await app.register(userRoutes);
 
   try {
     await app.listen({ port: 3333 });
