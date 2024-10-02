@@ -1,9 +1,9 @@
 import { FastifyInstance, FastifyPluginOptions, FastifyRequest, FastifyReply } from 'fastify';
-import { CreateDinosaurController } from '../controllers/CreateDinosaurController';
-import { ListDinosaurController } from '../controllers/ListDinosaurController';
-import { deleteDinosaurController } from '../controllers/DeleteDinosaurController';
-import { listDinosaurByIdController } from '../controllers/ListDinosaurByIdController';
-import { updateDinosaurController } from '../controllers/UpdateDinosaurController';
+import { ListDinosaurController } from '../controllers/dinosaur/ListDinosaurController';
+import { listDinosaurByIdController } from '../controllers/dinosaur/ListDinosaurByIdController';
+import { CreateDinosaurController } from '../controllers/dinosaur/CreateDinosaurController';
+import { deleteDinosaurController } from '../controllers/dinosaur/DeleteDinosaurController';
+import { updateDinosaurController } from '../controllers/dinosaur/UpdateDinosaurController';
 import { authMiddleware } from '../middlewares/authMiddleware';
 
 export async function dinosaurRoutes(fastify: FastifyInstance, options: FastifyPluginOptions) {

@@ -1,5 +1,5 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { CreateUserService } from "../services/CreateUserSevice";
+import { CreateUserService } from "../../services/user/CreateUserSevice";
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 

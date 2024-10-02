@@ -1,5 +1,5 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { UpdateDinosaurService } from "../services/UpdateDinosaurService";
+import { UpdateDinosaurService } from "../../services/dinosaur/UpdateDinosaurService";
 
 class updateDinosaurController {
   async handle(req: FastifyRequest, res: FastifyReply) {

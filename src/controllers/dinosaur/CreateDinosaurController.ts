@@ -1,5 +1,5 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { CreateDinosaurService } from "../services/CreateDinosaurService";
+import { CreateDinosaurService } from "../../services/dinosaur/CreateDinosaurService";
 
 class CreateDinosaurController {
   async handle(req: FastifyRequest, res: FastifyReply) {

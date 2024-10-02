@@ -1,5 +1,5 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { ListDinosaurService } from "../services/ListDinosaurService";
+import { ListDinosaurService } from "../../services/dinosaur/ListDinosaurService";
 
 interface QueryParams {
   period?: string;

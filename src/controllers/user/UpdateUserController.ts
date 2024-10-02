@@ -1,5 +1,5 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { UpdateUserService } from "../services/UpdateUserService";
+import { UpdateUserService } from "../../services/user/UpdateUserService";
 
 class updateUserController {
   async handle(req: FastifyRequest, res: FastifyReply) {

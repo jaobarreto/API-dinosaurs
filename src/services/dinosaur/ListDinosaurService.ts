@@ -1,4 +1,4 @@
-import prismaClient from "../prisma";
+import prismaClient from "../../prisma";
 
 class ListDinosaurService {
   async execute({ period, diet, length, weight }: { period?: string; diet?: string; length?: string; weight?: string }, page: number, pageSize: number) {

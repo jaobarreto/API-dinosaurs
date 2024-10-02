@@ -1,9 +1,9 @@
 import { FastifyInstance, FastifyPluginOptions, FastifyRequest, FastifyReply } from 'fastify';
-import { CreateUserController } from '../controllers/CreateUserController';
-import { listUserController } from '../controllers/ListUserController'
-import { deleteUserController } from '../controllers/DeleteUserController'
-import { updateUserController } from '../controllers/UpdateUserController'
-import { handleLogin } from '../controllers/UserLoginController';
+import { CreateUserController } from '../controllers/user/CreateUserController';
+import { listUserController } from '../controllers/user/ListUserController'
+import { deleteUserController } from '../controllers/user/DeleteUserController'
+import { updateUserController } from '../controllers/user/UpdateUserController'
+import { handleLogin } from '../controllers/user/UserLoginController';
 
 interface LoginRequestBody {
   email: string;

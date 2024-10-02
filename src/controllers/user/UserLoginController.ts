@@ -1,5 +1,5 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
-import { loginUser } from '../services/UserLoginService';
+import { loginUser } from '../../services/user/UserLoginService';
 
 interface LoginRequestBody {
   email: string;
@@ -13,6 +13,6 @@ export const handleLogin = async (req: FastifyRequest<{ Body: LoginRequestBody }
     const token = await loginUser(email, password);
     return res.send({ token });
   } catch (error) {
-    return res.status(401).send({ message: "Error"});
+    return res.status(401).send({ message: "Error" });
   }
 };
