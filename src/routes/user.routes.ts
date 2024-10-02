@@ -15,15 +15,15 @@ export async function userRoutes(fastify: FastifyInstance, options: FastifyPlugi
     return new listUserController().handle(req, res);
   });
 
-  fastify.post("/users", async (req: FastifyRequest, res: FastifyReply) => {
+  fastify.post("/user", async (req: FastifyRequest, res: FastifyReply) => {
     return new CreateUserController().handle(req, res);
   });
 
-  fastify.put("/users/:id", async (req: FastifyRequest, res: FastifyReply) => {
+  fastify.put("/user/:id", async (req: FastifyRequest, res: FastifyReply) => {
     return new updateUserController().handle(req, res);
   });
 
-  fastify.delete("/users/:id", async (req: FastifyRequest, res: FastifyReply) => {
+  fastify.delete("/user/:id", async (req: FastifyRequest, res: FastifyReply) => {
     return new deleteUserController().handle(req, res);
   });
 
