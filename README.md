@@ -42,23 +42,54 @@ JWT_SECRET="seu_segredo_jwt"
 ```
 
 ## Endpoints
-**Criar um Usuário**:
 
-- **URL**: /user
-- **Método**: POST
+**Autenticação**:
+
+Login:
+
+- **URL**: `/login`
+- **Método**: `POST`
 - **Exemplo de corpo da requisição**:
+
 ```json
 {
   "email": "usuario@example.com",
   "password": "sua_senha",
-  "role": "admin"
+  "role": "role_criada"
 }
 ```
 
-**Criar um Dinossauro**:
+- Resposta de Sucesso:
 
-- **URL**: /dinosaurs
-- **Método**: POST
+```json
+{
+  "token": "seu_jwt_token"
+}
+```
+
+**Usuários**
+
+Criar um Usuário:
+
+- **URL**: `/user`
+- **Método**: `POST`
+- **Exemplo de corpo da requisição**
+
+```json
+{
+  "email": "usuario@example.com",
+  "password": "sua_senha",
+  "role": "role_criada"
+}
+```
+
+**Dinossauros**:
+
+Criar um Dinossauro:
+
+- **URL**: `/dinosaur`
+- **Método**: `POST`
+- **Autenticação**: `Bearer Token`
 - **Exemplo de corpo da requisição**:
 
 ```json
@@ -72,20 +103,34 @@ JWT_SECRET="seu_segredo_jwt"
 }
 ```
 
-**Obter todos os Dinossauros**:
+Obter todos os Dinossauros:
 
 - **URL**: `/dinosaurs`
 - **Método**: `GET`
+- **Parâmetros de Consulta** (Opcionais):
+  - `period` (string): Filtra dinossauros pelo período.
+  - `diet` (string): Filtra dinossauros pela dieta
+  - `length` (number): Filtra dinossauros pelo comprimento
+  - `weight` (number): Filtra dinossauros pelo peso
+  - `page` (number): Página de paginação
+  - `limit` (number): Limite de dinossauros por página
 
-**Obter um Dinossauro pelo ID**:
+**Exemplo de URL**:
 
-- **URL**: `/dinosaurs/:id`
+```sh
+/dinosaurs?period=Late+Cretaceous&diet=Herbivore&page=1&limit=10
+```
+
+Obter um Dinossauro pelo ID:
+
+- **URL**: `/dinosaur/:id`
 - **Método**: `GET`
 
-**Atualizar um Dinossauro**:
+Atualizar um Dinossauro:
 
-- **URL**: /dinosaurs
-- **Método**: POST
+- **URL**: `/dinosaur/:id`
+- **Método**: `PUT`
+- **Autenticação**: `Bearer Token`
 - **Exemplo de corpo da requisição**:
 
 ```json
@@ -101,10 +146,11 @@ JWT_SECRET="seu_segredo_jwt"
 
 **Deletar um Dinossauro**:
 
-- **URL**: `/dinosaurs/:id`
+- **URL**: `/dinosaur/:id`
 - **Método**: `DELETE`
+- **Autenticação**: `Bearer Token`
 
-## Um exemplo de Dinossauro em JSON
+## Dinossauro em JSON
 
 ```json
 {

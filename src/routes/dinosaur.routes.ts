@@ -15,7 +15,7 @@ export async function dinosaurRoutes(fastify: FastifyInstance, options: FastifyP
     return new ListDinosaurController().handle(req, res);
   });
 
-  fastify.get("/dinosaurs/:id", async (req: FastifyRequest, res: FastifyReply) => {
+  fastify.get("/dinosaur/:id", async (req: FastifyRequest, res: FastifyReply) => {
     return new listDinosaurByIdController().handle(req, res);
   });
 
