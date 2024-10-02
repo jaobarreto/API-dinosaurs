@@ -30,6 +30,7 @@ Esta é uma API para gerenciar informações sobre dinossauros. A API permite cr
 
 ```sh
 DATABASE_URL="sua_url_do_mongo_atlas"
+JWT_SECRET="seu_segredo_jwt"
 ```
 
 ## Scripts
@@ -41,6 +42,18 @@ DATABASE_URL="sua_url_do_mongo_atlas"
 ```
 
 ## Endpoints
+**Criar um Usuário**:
+
+- **URL**: /user
+- **Método**: POST
+- **Exemplo de corpo da requisição**:
+```json
+{
+  "email": "usuario@example.com",
+  "password": "sua_senha",
+  "role": "admin"
+}
+```
 
 **Criar um Dinossauro**:
 
