@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyPluginOptions, FastifyRequest, FastifyReply } from 'fastify';
 import { CreateDinosaurController } from '../controllers/CreateDinosaurController';
-import { listDinosaurController } from '../controllers/ListDinosaurController';
+import { ListDinosaurController } from '../controllers/ListDinosaurController';
 import { deleteDinosaurController } from '../controllers/DeleteDinosaurController';
 import { listDinosaurByIdController } from '../controllers/ListDinosaurByIdController';
 import { updateDinosaurController } from '../controllers/UpdateDinosaurController';
@@ -11,8 +11,8 @@ export async function dinosaurRoutes(fastify: FastifyInstance, options: FastifyP
     return "Welcome to the dinosaur API";
   });
 
-  fastify.get("/dinosaurs", async (req: FastifyRequest, res: FastifyReply) => {
-    return new listDinosaurController().handle(req, res);
+  fastify.get("/dinosaurs", async (req: FastifyRequest<{ Querystring: { period?: string; diet?: string; length?: string; weight?: string; page?: string; pageSize?: string; } }>, res: FastifyReply) => {
+    return new ListDinosaurController().handle(req, res);
   });
 
   fastify.get("/dinosaurs/:id", async (req: FastifyRequest, res: FastifyReply) => {

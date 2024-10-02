@@ -1,14 +1,31 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import { ListDinosaurService } from "../services/ListDinosaurService";
 
-class listDinosaurController {
-  async handle(req: FastifyRequest, res: FastifyReply) {
+interface QueryParams {
+  period?: string;
+  diet?: string;
+  length?: string;
+  weight?: string;
+  page?: string;
+  pageSize?: string;
+}
+
+class ListDinosaurController {
+  async handle(req: FastifyRequest<{ Querystring: QueryParams }>, res: FastifyReply) {
     const listDinosaurService = new ListDinosaurService();
 
-    const dinosaurs = await listDinosaurService.execute();
+    const { period, diet, length, weight, page, pageSize } = req.query;
+    const pageNumber = parseInt(page as string) || 1;
+    const pageSizeNumber = parseInt(pageSize as string) || 10;
 
-    res.send(dinosaurs)
+    const dinosaurs = await listDinosaurService.execute(
+      { period, diet, length, weight },
+      pageNumber,
+      pageSizeNumber
+    );
+
+    res.send(dinosaurs);
   }
 }
 
-export { listDinosaurController };
+export { ListDinosaurController };
